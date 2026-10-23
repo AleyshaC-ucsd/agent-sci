@@ -1,0 +1,22 @@
+{
+  "biomarker_confounding": {
+    "expected_verdicts": ["initial_claim_challenged", "inconclusive"],
+    "required_controls": ["age"],
+    "hypothesis_clues": ["age", "confound"]
+  },
+  "treatment_confounding": {
+    "expected_verdicts": ["initial_claim_challenged", "inconclusive"],
+    "required_controls": ["baseline_severity", "age"],
+    "hypothesis_clues": ["severity", "indication"]
+  },
+  "biomarker_true_effect": {
+    "expected_verdicts": ["survives_checks", "inconclusive"],
+    "required_controls": ["age"],
+    "hypothesis_clues": ["age", "confound"]
+  },
+  "reverse_causation": {
+    "expected_verdicts": ["not_identifiable"],
+    "required_controls": [],
+    "hypothesis_clues": ["reverse", "direction", "progression"]
+  }
+}

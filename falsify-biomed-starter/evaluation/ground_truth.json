@@ -1,0 +1,70 @@
+{
+  "biomarker_confounding": {
+    "causal_edges": [
+      [
+        "age",
+        "biomarker_x"
+      ],
+      [
+        "age",
+        "progression_score"
+      ]
+    ],
+    "true_direct_effect_per_unit": 0.0,
+    "expected_counterhypothesis": "age_confounds_biomarker_and_progression"
+  },
+  "treatment_confounding": {
+    "causal_edges": [
+      [
+        "age",
+        "drug_a"
+      ],
+      [
+        "baseline_severity",
+        "drug_a"
+      ],
+      [
+        "age",
+        "recovery_score"
+      ],
+      [
+        "baseline_severity",
+        "recovery_score"
+      ],
+      [
+        "drug_a",
+        "recovery_score"
+      ]
+    ],
+    "true_average_treatment_effect": 5.0,
+    "expected_counterhypothesis": "confounding_by_indication"
+  },
+  "biomarker_true_effect": {
+    "causal_edges": [
+      [
+        "age",
+        "biomarker_x"
+      ],
+      [
+        "age",
+        "progression_score"
+      ],
+      [
+        "biomarker_x",
+        "progression_score"
+      ]
+    ],
+    "true_direct_effect_per_unit": 0.55,
+    "expected_counterhypothesis": "confounding_considered_but_effect_persists"
+  },
+  "reverse_causation": {
+    "causal_edges": [
+      [
+        "progression_score",
+        "biomarker_x"
+      ]
+    ],
+    "expected_counterhypothesis": "reverse_causation",
+    "observational_direction_identifiable": false
+  }
+}

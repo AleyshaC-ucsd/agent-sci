@@ -1,0 +1,118 @@
+{
+  "biomarker_confounding": {
+    "title": "Biomarker and progression: suspected direct effect",
+    "claim": "Higher biomarker X causally increases disease progression.",
+    "design": "synthetic observational cohort",
+    "exposure": "biomarker_x",
+    "outcome": "progression_score",
+    "variables": {
+      "age": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Age at baseline (years)"
+      },
+      "baseline_cholesterol": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Cholesterol concentration at baseline"
+      },
+      "biomarker_x": {
+        "role": "exposure",
+        "timing": "baseline",
+        "description": "Continuous baseline biomarker level"
+      },
+      "progression_score": {
+        "role": "outcome",
+        "timing": "follow_up",
+        "description": "Disease progression score; higher means worse"
+      }
+    }
+  },
+  "treatment_confounding": {
+    "title": "Drug A and recovery: suspected harm",
+    "claim": "Drug A causes worse recovery because treated patients have lower recovery scores.",
+    "design": "synthetic observational treatment cohort",
+    "exposure": "drug_a",
+    "outcome": "recovery_score",
+    "variables": {
+      "age": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Age before treatment (years)"
+      },
+      "baseline_blood_pressure": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Blood pressure measured before treatment"
+      },
+      "baseline_severity": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Disease severity measured before treatment; higher is worse"
+      },
+      "drug_a": {
+        "role": "exposure",
+        "timing": "treatment",
+        "description": "Whether Drug A was prescribed (0=no, 1=yes)"
+      },
+      "post_treatment_marker": {
+        "role": "covariate",
+        "timing": "post_exposure",
+        "description": "Inflammation marker measured after treatment"
+      },
+      "recovery_score": {
+        "role": "outcome",
+        "timing": "follow_up",
+        "description": "Recovery score; higher means better"
+      }
+    }
+  },
+  "biomarker_true_effect": {
+    "title": "Biomarker and progression: true effect",
+    "claim": "Higher biomarker X causally increases disease progression.",
+    "design": "synthetic observational cohort",
+    "exposure": "biomarker_x",
+    "outcome": "progression_score",
+    "variables": {
+      "age": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Age at baseline (years)"
+      },
+      "baseline_cholesterol": {
+        "role": "covariate",
+        "timing": "pre_exposure",
+        "description": "Cholesterol concentration at baseline"
+      },
+      "biomarker_x": {
+        "role": "exposure",
+        "timing": "baseline",
+        "description": "Continuous baseline biomarker level"
+      },
+      "progression_score": {
+        "role": "outcome",
+        "timing": "follow_up",
+        "description": "Disease progression score; higher means worse"
+      }
+    }
+  },
+  "reverse_causation": {
+    "title": "Biomarker and progression: unknown direction",
+    "claim": "Higher biomarker X causes greater disease progression.",
+    "design": "synthetic cross-sectional observational sample",
+    "exposure": "biomarker_x",
+    "outcome": "progression_score",
+    "variables": {
+      "biomarker_x": {
+        "role": "exposure",
+        "timing": "simultaneous",
+        "description": "Biomarker measured at the same visit as progression"
+      },
+      "progression_score": {
+        "role": "outcome",
+        "timing": "simultaneous",
+        "description": "Disease progression at that visit"
+      }
+    }
+  }
+}
